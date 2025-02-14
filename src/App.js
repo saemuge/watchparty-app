@@ -1,8 +1,10 @@
+// src/App.js
 import React, { useState, useEffect } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { ref, set, onValue, push } from 'firebase/database'; // Firebase関連の関数をインポート
-import { database } from './firebase'; // 作成したfirebase.jsをインポート
+import { database } from './firebase';  // 作成したfirebase.jsをインポート
+import VideoPlayer from './VideoPlayer'; // VideoPlayerコンポーネントをインポート
 import './App.css';
 
 const ItemType = 'VIDEO';
@@ -101,6 +103,8 @@ const App = () => {
     <DndProvider backend={HTML5Backend}>
       <div className="App">
         <h1>My WatchParty Playlist</h1>
+
+        {/* プレイリスト表示部分 */}
         <div className="playlist">
           {playlist.map((video, index) => (
             <PlaylistItem
@@ -111,6 +115,12 @@ const App = () => {
             />
           ))}
         </div>
+
+        {/* 動画再生部分 */}
+        <div className="video-player">
+          {playlist.length > 0 && <VideoPlayer videoId={playlist[0].id} />}  {/* プレイリスト内の最初の動画を再生 */}
+        </div>
+
         <div className="add-video-form">
           <input
             type="text"
