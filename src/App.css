@@ -1,0 +1,34 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.playlist {
+  width: 300px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.playlist-item {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: move;
+}
+
+.add-video-form {
+  margin-top: 20px;
+}
+.add-video-form input {
+  padding: 10px;
+  width: 70%;
+  margin-right: 10px;
+}
+.add-video-form button {
+  padding: 10px;
+}
